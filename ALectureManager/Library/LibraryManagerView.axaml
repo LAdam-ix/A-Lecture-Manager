@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                           mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+                           x:Class="ALectureManager.Library.LibraryManagerView">
+    <Grid RowDefinitions="Auto *">
+        <StackPanel Grid.Row="0"   Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button Content="Scan" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top"
+                    Command="{Binding Scan}" />
+            <Button Content="Add New" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top"
+                    Command="{Binding AddNew}" />
+
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" Margin="5">
+            <ItemsControl x:Name="MainLayer" Items="{Binding Enteries}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*,3*,Auto" Margin="5">
+                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Stretch"
+                                     VerticalAlignment="Center" Margin="5" Grid.Column="0" />
+                            <TextBox IsReadOnly="True" Text="{Binding DirectoryPath}" HorizontalAlignment="Stretch"
+                                     VerticalAlignment="Center" Margin="5"
+                                     Grid.Column="1" />
+                            <Button Content="  Delete"
+                                    Grid.Column="4"
+                                    Margin="5" Width="80"
+                                    VerticalContentAlignment="Center"
+                                    Command="{Binding  ElementName=MainLayer, Path=DataContext.DeleteEntry}"
+                                    CommandParameter="{Binding}"/>
+
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>
+
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="ALectureManager-SecondTry/Views/EncoderManagerView.axaml" value="ALectureManager-SecondTry/ALectureManager-SecondTry.csproj" />
+        <entry key="ALectureManager-SecondTry/Views/MainWindow.axaml" value="ALectureManager-SecondTry/ALectureManager-SecondTry.csproj" />
+        <entry key="ALectureManager/App.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Encoder/EncodeProcessView.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Encoder/EncoderManagerView.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Encoder/EncoderSettings.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Encoder/EncoderSettingsView.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Library/LibraryManagerView.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/LibraryManager/LibraryManagerview.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Main/MainWindow.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Main/Settings.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Main/SettingsView.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Views/EncodeProcess.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Views/EncodeProcessView.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Views/EncoderManager.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Views/EncoderManagerView.axaml" value="ALectureManager/ALectureManager.csproj" />
+        <entry key="ALectureManager/Views/MainWindow.axaml" value="ALectureManager/ALectureManager.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

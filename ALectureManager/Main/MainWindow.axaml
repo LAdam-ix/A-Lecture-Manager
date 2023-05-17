@@ -1,0 +1,21 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ALectureManager.Views.MainWindow"
+        Title="A Lecture Manager"
+        MinWidth="870"
+        MinHeight="250">
+    <!-- <Design.DataContext> -->
+    <!--     ~1~ This only sets the DataContext for the previewer in an IDE, @1@ -->
+    <!--     ~1~     to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)  @1@ -->
+    <!--     <vm:MainWindowViewModel /> -->
+    <!-- </Design.DataContext> -->
+
+    <TabControl>
+        <TabItem Header="File Manager" VerticalContentAlignment="Center" Content="{Binding LibraryManager}" />
+        <TabItem Header="Encoder" VerticalContentAlignment="Center" Content="{Binding EncoderManager}" />
+        <TabItem Header="Settings" VerticalContentAlignment="Center" Content="{Binding Settings}" />
+    </TabControl>
+</Window>
