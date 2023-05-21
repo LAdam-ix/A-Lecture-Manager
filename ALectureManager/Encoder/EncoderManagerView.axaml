@@ -4,10 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="ALectureManager.Encoder.EncoderManagerView">
+    <Grid>
+    <Border IsVisible="{Binding IsInitialized}">
     <Grid RowDefinitions="Auto *">
         <StackPanel Grid.Row="0"   Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <Button Content="Save Proccesses" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"
                     Command="{Binding SaveProcesses}" IsEnabled="{Binding !IsSaving}" />
+            <Button Content="Run All" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Command="{Binding RunAll}" IsEnabled="{Binding !AllIsRunning}" />
             <Button Content="Add New" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"
                     Command="{Binding AddNew}" />
 
@@ -29,5 +33,11 @@
             </ItemsControl>
         </ScrollViewer>
 
+    </Grid>
+    
+    </Border>
+    <Border IsVisible="{Binding !IsInitialized}">
+        <TextBlock Text="Faild to find FFMpeg. Try to edit path in Settings and run again" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        </Border>
     </Grid>
 </UserControl>

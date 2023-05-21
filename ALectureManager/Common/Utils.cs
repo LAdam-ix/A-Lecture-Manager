@@ -1,13 +1,9 @@
-using System;
 using System.IO;
 using System.Threading.Tasks;
-using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Styling;
-using MessageBox.Avalonia;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
+using Avalonia.Threading;
 
 namespace ALectureManager;
 
@@ -48,8 +44,6 @@ public static class Utils
             var result = await openDialog.ShowAsync(mainWindow.MainWindow);
             return result is { Length: > 0 } ? result[0] : null;
         }
-
-
     }
 
     public static string GetAutoOutputPath(string filePath)
@@ -77,20 +71,50 @@ public static class Utils
         return null;
     }
 
-    public async static Task<ButtonResult> GetInfoBox(
-        string title, string message, 
-        ButtonEnum buttons = ButtonEnum.Ok)
+    public async static Task<ButtonResult> GetConfirmBox(
+        string title, string message,
+        ButtonEnum buttons = ButtonEnum.YesNo)
     {
-
         var msBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
-        .GetMessageBoxStandardWindow(new MessageBoxStandardParams
-        {
-            ButtonDefinitions = buttons,
-            ContentTitle = title,
-            ContentMessage = message,
-            Icon = Icon.Plus,
-        });
+            .GetMessageBoxStandardWindow(new MessageBoxStandardParams
+            {
+                ButtonDefinitions = buttons,
+                ContentTitle = title,
+                ContentMessage = message,
+                Icon = Icon.Plus,
+            });
         return await msBoxStandardWindow.Show();
     }
 
+    // dont know how exactly this works but im happey that it works
+    public static void GetInfoBox(
+        string title, string message,
+        ButtonEnum buttons = ButtonEnum.Ok)
+    {
+        Dispatcher.UIThread.InvokeAsync(async () =>
+        {
+            var msBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
+                .GetMessageBoxStandardWindow(new MessageBoxStandardParams
+                {
+                    ButtonDefinitions = buttons,
+                    ContentTitle = title,
+                    ContentMessage = message,
+                    Icon = Icon.Plus,
+                });
+
+            await msBoxStandardWindow.Show();
+        });
+
+
+        // var msBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
+        //     .GetMessageBoxStandardWindow(new MessageBoxStandardParams
+        //     {
+        //         ButtonDefinitions = buttons,
+        //         ContentTitle = title,
+        //         ContentMessage = message,
+        //         Icon = Icon.Plus,
+        //     });
+
+        // msBoxStandardWindow.Show();
+    }
 }

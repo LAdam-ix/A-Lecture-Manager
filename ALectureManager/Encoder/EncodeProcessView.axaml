@@ -64,12 +64,14 @@
 
                                 </Style>
                             </StackPanel.Styles>
-                            <TextBlock Text="Finished: " />
-                            <TextBlock Foreground="Blue" Text="{Binding Data.Progress.Time, Mode=OneWay}" Width="60" />
-                            <TextBlock Text="Total Frames: " />
-                            <TextBlock Foreground="Blue" Text="{Binding Data.Progress.Fps, Mode=OneWay}" Width="50" />
+                            <TextBlock Text="Finished (time): " />
+                            <TextBlock Foreground="Blue" Text="{Binding Data.Time, Mode=OneWay}" Width="70" />
+                            <TextBlock Text="Fps: " />
+                            <TextBlock Foreground="Blue" Text="{Binding Data.Fps, Mode=OneWay}" Width="60" />
                             <TextBlock Text="Speed: " />
-                            <TextBlock Foreground="Blue" Text="{Binding Data.Progress.Speed}" Width="80" />
+                            <TextBlock Foreground="Blue" Text="{Binding Data.Speed}" Width="50" />
+                            <TextBlock Text="Finished (%):" />
+                            <TextBlock Foreground="Blue" Text="{Binding Data.Status}" Width="60" />
                         </StackPanel>
 
                     </Grid>

@@ -1,10 +1,7 @@
-﻿using System.ComponentModel;
-using System.Linq;
-using ALectureManager.Models;
+﻿using ALectureManager.Models;
 using ALectureManager.Encoder;
 using ALectureManager.Library;
 using ALectureManager.Views;
-using ReactiveUI;
 
 namespace ALectureManager.Main;
 

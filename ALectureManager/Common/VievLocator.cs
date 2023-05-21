@@ -1,8 +1,3 @@
-using System;
-using Avalonia.Controls;
-using Avalonia.Controls.Templates;
-
-
 namespace ALectureManager;
 
 public class ViewLocator : IDataTemplate

@@ -1,8 +1,6 @@
-using System;
 using System.IO;
 using ALectureManager.Encoder;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace ALectureManager.Library;
 
@@ -50,6 +48,7 @@ public partial class LibraryEntry : ObservableObject
                 newProcessDataList.Add(processData);
             }
         }
+
         //make a reverse sort by name?
         return newProcessDataList.OrderByDescending(x => x.InputPath).ToList();
     }

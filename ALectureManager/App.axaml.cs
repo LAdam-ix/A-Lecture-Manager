@@ -1,6 +1,5 @@
 using ALectureManager.Main;
 using ALectureManager.Models;
-using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using ALectureManager.Views;
@@ -28,7 +27,6 @@ public partial class App : Application
             mainWindow.DataContext = mainWindowViewModel;
 
             desktop.MainWindow = mainWindow;
-
         }
     }
 }

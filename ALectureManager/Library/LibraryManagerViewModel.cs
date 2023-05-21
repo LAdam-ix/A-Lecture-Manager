@@ -1,10 +1,8 @@
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using ALectureManager.Encoder;
 using ALectureManager.Main;
 using ALectureManager.Models;
-using System.Linq;
 
 namespace ALectureManager.Library;
 
@@ -49,7 +47,6 @@ public partial class LibraryManagerViewModel : ViewModelBase
         }
         CreateEncodeProcess(newEncodeData);
     }
-
 
 
     private async void AddNewExecute()

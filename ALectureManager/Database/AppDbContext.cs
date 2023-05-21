@@ -1,11 +1,9 @@
-using System.Linq;
+
 using System.Threading.Tasks;
 using ALectureManager.Encoder;
 using ALectureManager.Library;
 using ALectureManager.Main;
 using Microsoft.EntityFrameworkCore;
-using HanumanInstitute.FFmpeg;
-
 
 
 namespace ALectureManager.Models;
@@ -16,13 +14,11 @@ public class AppDbContext : DbContext
 
     public DbSet<EncoderProcessData> EncoderProcessesData { get; set; }
     public DbSet<CodecOption> CodecOption { get; set; }
-    private DbSet<SavableProgressStatus> _progress { get; set; }
     public DbSet<LibraryEntry> LibraryEntries { get; set; }
+
     public AppDbContext(SettingsViewModel settings)
     {
-        
         _connectionString = settings.DatabaseConectionString;
-        // Database.EnsureDeleted();
         Database.EnsureCreated();
     }
 
@@ -34,8 +30,12 @@ public class AppDbContext : DbContext
     public async Task ReplaceEncodeProcesses(IEnumerable<EncoderProcessData> newEncodeProcessesData)
     {
         var existingIds = await EncoderProcessesData.Select(e => e.Id).ToListAsync();
+        // this probably isnt the best but it was the only way to stop this from crashing.
+        // maybe other way would be not storing the encode inside the json setting but 
+        // only in this db and load it there but im not sure if that would work
+        // and would take too much time to try.
         EncoderProcessesData.RemoveRange(EncoderProcessesData);
-
+        CodecOption.RemoveRange(CodecOption);
         foreach (var newData in newEncodeProcessesData)
         {
             if (existingIds.Contains(newData.Id))
@@ -50,5 +50,4 @@ public class AppDbContext : DbContext
 
         await SaveChangesAsync();
     }
-
 }
